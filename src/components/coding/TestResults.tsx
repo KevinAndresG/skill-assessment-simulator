@@ -42,7 +42,8 @@ export function TestResults({ outcome, tests, visibleCount, summary, graded, hid
           return (
             <div key={i} className={`tc ${r.pass ? 'pass' : 'fail'}`}>
               <span className="ic" aria-label={r.pass ? 'Pasó' : 'Falló'}>{r.pass ? '✓' : '✗'}</span>
-              <div>
+              {/* pre-wrap: show real spaces in args/output, HTML collapses them otherwise */}
+              <div style={{ whiteSpace: 'pre-wrap' }}>
                 <div>
                   <b>{hidden ? `Oculto #${i - visibleCount + 1}` : `Visible #${i + 1}`}</b>{' '}
                   {r.ms != null && <span className="muted">{r.ms.toFixed(1)} ms</span>}

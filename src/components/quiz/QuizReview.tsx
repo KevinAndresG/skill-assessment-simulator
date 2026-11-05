@@ -26,7 +26,7 @@ export function gradeQuiz(questions: QuizQuestion[], answers: (number | undefine
 export function QuizReview({ questions, answers, result }: { questions: QuizQuestion[]; answers: (number | undefined)[]; result: QuizResult }) {
   return (
     <div className="card">
-      <h2 style={{ marginTop: 0 }}>Resultado: {result.correct}/{result.total} · {result.percent}%</h2>
+      <h2 style={{ marginTop: 0, color: result.percent >= 70 ? 'var(--good)' : result.percent >= 50 ? 'var(--warn)' : 'var(--bad)' }}>Resultado: {result.correct}/{result.total} · {result.percent}%</h2>
       <table>
         <thead>
           <tr><th>Tema</th><th>Aciertos</th></tr>
@@ -35,7 +35,7 @@ export function QuizReview({ questions, answers, result }: { questions: QuizQues
           {Object.entries(result.byCategory).map(([cat, v]) => (
             <tr key={cat}>
               <td>{QUIZ_CATEGORY_LABEL[cat as QuizCategory]}</td>
-              <td>{v.ok}/{v.n}</td>
+              <td style={{ color: v.ok === v.n ? 'var(--good)' : v.ok === 0 ? 'var(--bad)' : 'var(--warn)', fontWeight: 600 }}>{v.ok}/{v.n}</td>
             </tr>
           ))}
         </tbody>
@@ -44,11 +44,13 @@ export function QuizReview({ questions, answers, result }: { questions: QuizQues
       {questions.map((q, i) => {
         const ok = answers[i] === q.answer;
         return (
-          <details key={q.id} open={!ok}>
-            <summary>{ok ? '✓' : '✗'} {q.question}</summary>
+          <details key={q.id} open={!ok} style={{ borderColor: ok ? '#245446' : '#5e2b27', background: ok ? undefined : '#371b19' }}>
+            <summary>
+              <span style={{ color: ok ? 'var(--good)' : 'var(--bad)', fontWeight: 700 }}>{ok ? '✓' : '✗'}</span> {q.question}
+            </summary>
             {q.code && <CodeBlock code={q.code} />}
             <p>
-              Tu respuesta: <b>{answers[i] == null ? 'sin responder' : q.options[answers[i]!]}</b>
+              Tu respuesta: <b style={{ color: ok ? 'var(--good)' : 'var(--bad)' }}>{answers[i] == null ? 'sin responder' : q.options[answers[i]!]}</b>
               <br />
               Correcta: <b style={{ color: 'var(--good)' }}>{q.options[q.answer]}</b>
             </p>
