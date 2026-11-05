@@ -2,6 +2,7 @@ import type { DebugChallenge } from '@/content/types';
 
 const challenge: DebugChallenge = {
   kind: 'debug',
+  level: "intermediate",
   id: "dbg-binary",
   title: "Binary Search (timeout)",
   minutes: 10,

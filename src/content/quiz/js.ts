@@ -184,4 +184,71 @@ copy.address.city = 'Medellín';`,
     answer: 1,
     explanation: `Inmutables: map, filter, reduce, slice, concat y las de ES2023 toSorted, toReversed, toSpliced y with. Clave para el estado de React.`,
   },
+  {
+    id: 'js-20',
+    category: 'js',
+    question: `What is the console output order?`,
+    code: `console.log(1);
+setTimeout(() => console.log(2), 0);
+(async () => {
+  console.log(3);
+  await null;
+  console.log(4);
+})();
+console.log(5);`,
+    options: ["1 2 3 4 5","1 3 5 4 2","1 3 4 5 2","1 5 3 2 4"],
+    answer: 1,
+    explanation: `El cuerpo de la async function corre síncrono hasta el primer await (3). El resto va a la cola de microtareas (4), que se ejecuta antes que la macrotarea del setTimeout (2).`,
+  },
+  {
+    id: 'js-21',
+    category: 'js',
+    question: `What does [].reduce((a, b) => a + b) do (no initial value)?`,
+    options: ["Returns 0","Throws a TypeError","Returns undefined","Returns an empty array"],
+    answer: 1,
+    explanation: `Sin valor inicial y con array vacío, reduce lanza TypeError ("Reduce of empty array with no initial value"). Pasa siempre un valor inicial.`,
+  },
+  {
+    id: 'js-22',
+    category: 'js',
+    question: `What is typeof NaN?`,
+    options: ["\"NaN\"","\"number\"","\"undefined\"","\"object\""],
+    answer: 1,
+    explanation: `NaN es un valor de tipo number (IEEE 754). Para detectarlo usa Number.isNaN(x).`,
+  },
+  {
+    id: 'js-23',
+    category: 'js',
+    question: `What does user?.address?.city return when user is null?`,
+    options: ["It throws a TypeError","undefined","null","An empty string"],
+    answer: 1,
+    explanation: `El optional chaining corta la evaluación en el primer null/undefined y devuelve undefined en lugar de lanzar error.`,
+  },
+  {
+    id: 'js-24',
+    category: 'js',
+    question: `What is event delegation?`,
+    options: ["Moving the handler to a Web Worker","Attaching one listener to a common ancestor and using event.target to handle events from its children","Removing listeners after the first event","Calling stopPropagation on every event"],
+    answer: 1,
+    explanation: `Aprovecha el bubbling: un solo listener atiende muchos hijos, incluso los creados dinámicamente, con menos memoria.`,
+  },
+  {
+    id: 'js-25',
+    category: 'js',
+    question: `What does this log?`,
+    code: `function show() { return this.v; }
+const f = show.bind({ v: 1 });
+console.log(f.call({ v: 2 }));`,
+    options: ["2","1","undefined","TypeError"],
+    answer: 1,
+    explanation: `bind crea una función con this fijo; call/apply posteriores no pueden cambiarlo. (new sí puede sobrescribirlo).`,
+  },
+  {
+    id: 'js-26',
+    category: 'js',
+    question: `What does Object.freeze guarantee?`,
+    options: ["Deep immutability of nested objects","The object itself cannot get new properties, lose them or have them changed (shallow only)","It only prevents deleting properties","It converts the variable into a const"],
+    answer: 1,
+    explanation: `freeze es superficial: los objetos anidados siguen siendo mutables a menos que los congeles recursivamente.`,
+  },
 ];

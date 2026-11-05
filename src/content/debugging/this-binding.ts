@@ -2,6 +2,7 @@ import type { DebugChallenge } from '@/content/types';
 
 const challenge: DebugChallenge = {
   kind: 'debug',
+  level: "intermediate",
   id: "dbg-this",
   title: "Formatter this binding",
   minutes: 10,

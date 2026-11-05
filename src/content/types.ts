@@ -50,6 +50,7 @@ export interface CodingChallenge extends ChallengeBase {
 
 export interface DebugChallenge extends ChallengeBase {
   kind: 'debug';
+  level: CodingLevel;
   /** Requisitos en HTML simple. */
   requirements: string;
   /** Código inicial con bugs. Debe fallar al menos un test. */
@@ -72,9 +73,9 @@ export interface QuizQuestion {
 }
 
 export const LEVEL_LABEL: Record<CodingLevel, string> = {
-  entry: 'Entry',
+  entry: 'Fácil',
   intermediate: 'Intermedio',
-  data: 'Estructuras / B2B',
+  data: 'Difícil',
 };
 
 export const QUIZ_CATEGORY_LABEL: Record<QuizCategory, string> = {

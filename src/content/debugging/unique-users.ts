@@ -2,6 +2,7 @@ import type { DebugChallenge } from '@/content/types';
 
 const challenge: DebugChallenge = {
   kind: 'debug',
+  level: "entry",
   id: "dbg-unique-users",
   title: "Unique Users by id",
   minutes: 10,

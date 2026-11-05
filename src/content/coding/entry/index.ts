@@ -10,6 +10,9 @@ import roman from './roman';
 import binarySearch from './binary-search';
 import camel from './camel';
 import rotate from './rotate';
+import countVowels from './count-vowels';
+import secondLargest from './second-largest';
+import missingNumber from './missing-number';
 
 export const entryChallenges = [
   reverseWords,
@@ -24,4 +27,7 @@ export const entryChallenges = [
   binarySearch,
   camel,
   rotate,
+  countVowels,
+  secondLargest,
+  missingNumber,
 ];

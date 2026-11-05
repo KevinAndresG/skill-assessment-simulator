@@ -2,6 +2,7 @@ import type { DebugChallenge } from '@/content/types';
 
 const challenge: DebugChallenge = {
   kind: 'debug',
+  level: "entry",
   id: "dbg-sum-even",
   title: "Sum of Even Numbers",
   minutes: 10,

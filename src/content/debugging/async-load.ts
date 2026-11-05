@@ -2,6 +2,7 @@ import type { DebugChallenge } from '@/content/types';
 
 const challenge: DebugChallenge = {
   kind: 'debug',
+  level: "intermediate",
   id: "dbg-async-load",
   title: "Load Users in Order (async)",
   minutes: 15,

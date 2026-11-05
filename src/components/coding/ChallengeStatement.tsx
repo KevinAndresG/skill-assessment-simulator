@@ -8,7 +8,7 @@ export function ChallengeStatement({ challenge, aside }: { challenge: Challenge;
     <>
       <div className="row">
         <h2 style={{ margin: 0 }}>{challenge.title}</h2>
-        {challenge.kind === 'coding' ? <Tag tone={challenge.level}>{LEVEL_LABEL[challenge.level]}</Tag> : <Tag tone="intermediate">Debugging</Tag>}
+        <Tag tone={challenge.level}>{challenge.kind === 'debug' ? 'Debugging · ' : ''}{LEVEL_LABEL[challenge.level]}</Tag>
         <Tag>{challenge.minutes} min</Tag>
         <span className="sp" />
         {aside}

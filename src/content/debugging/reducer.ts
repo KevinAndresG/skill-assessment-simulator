@@ -2,6 +2,7 @@ import type { DebugChallenge } from '@/content/types';
 
 const challenge: DebugChallenge = {
   kind: 'debug',
+  level: "data",
   id: "dbg-reducer",
   title: "Todos Reducer (React)",
   minutes: 15,

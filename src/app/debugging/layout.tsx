@@ -4,7 +4,7 @@ import { contentRepository } from '@/lib/repository';
 
 export default async function DebuggingLayout({ children }: LayoutProps<'/debugging'>) {
   const challenges = await contentRepository.listDebug();
-  const items = challenges.map(({ id, title, minutes }) => ({ id, title, minutes }));
+  const items = challenges.map(({ id, title, minutes, level }) => ({ id, title, minutes, level }));
   return (
     <>
       <PageHeader title="Debugging">
@@ -12,7 +12,7 @@ export default async function DebuggingLayout({ children }: LayoutProps<'/debugg
         primero los requisitos y luego el código.
       </PageHeader>
       <div className="layout">
-        <ChallengeSidebar items={items} basePath="/debugging" />
+        <ChallengeSidebar items={items} basePath="/debugging" showLevelFilter />
         <section>{children}</section>
       </div>
     </>
