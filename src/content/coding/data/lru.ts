@@ -14,7 +14,7 @@ function lruSimulate(capacity: number, ops: Op[]): number[]`,
 when over capacity evict the least recently used key. <code>["get", k]</code> returns the value (marks as used) or <code>-1</code>.
 Return the array of results of every <code>get</code>, in order.`,
   examples: [["2, [[\"put\",1,1],[\"put\",2,2],[\"get\",1],[\"put\",3,3],[\"get\",2],[\"get\",3]]","[1,-1,3]"]],
-  hint: `Un Map conserva orden de inserción: delete + set para "tocar"; map.keys().next().value es el LRU.`,
+  hint: "Necesitas saber cuál fue el elemento usado hace más tiempo. Piensa en una estructura que recuerde el orden de inserción y cómo \"refrescar\" un elemento al leerlo.",
   solution: `function lruSimulate(capacity, ops) {
   const cache = new Map();
   const out = [];

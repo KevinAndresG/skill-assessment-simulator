@@ -15,7 +15,7 @@ function sortRecords<T extends Record<string, string | number>>(records: T[], sp
 (first key wins, next keys break ties). Values are numbers or strings, compared with <code>&lt;</code>/<code>&gt;</code>.
 The sort must be stable and must NOT mutate the input array.`,
   examples: [["[{n:\"b\",v:2},{n:\"a\",v:2},{n:\"c\",v:1}], [{key:\"v\",dir:\"desc\"},{key:\"n\",dir:\"asc\"}]","[{n:\"a\",v:2},{n:\"b\",v:2},{n:\"c\",v:1}]"]],
-  hint: `[...records].sort(comparator) — el comparador recorre spec y devuelve el primer resultado distinto de 0.`,
+  hint: "Necesitas un comparador que pruebe los criterios en orden. ¿Cuándo pasas al siguiente criterio y cuándo ya puedes decidir? No olvides no alterar el arreglo original.",
   solution: `function sortRecords(records, spec) {
   return [...records].sort((a, b) => {
     for (const { key, dir } of spec) {

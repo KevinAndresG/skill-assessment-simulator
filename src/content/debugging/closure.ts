@@ -33,6 +33,7 @@ function counterValues(n) {
 function counterValues(n) {
   return makeCounters(n).map(f => f());
 }`,
+  hint: "Mira cómo se declara la variable del for y qué valor tiene cuando las funciones se ejecutan. ¿Quién comparte esa variable?",
   bugs: ["var tiene scope de función: todas las closures comparten el mismo i (valor final n) → usar let"],
   visible: [
     { args: [3], expected: [0,1,2] },

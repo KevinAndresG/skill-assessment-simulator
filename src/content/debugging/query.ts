@@ -35,6 +35,7 @@ const challenge: DebugChallenge = {
   }
   return result;
 }`,
+  hint: "Prueba con cadenas raras: vacía, clave sin \"=\", valores con \"=\" o \"%20\", y claves repetidas. Cada caso rompe algo distinto.",
   bugs: ["\"\" genera la clave vacía {\"\": undefined}","no decodifica %20 ni +","las claves repetidas se sobrescriben","clave sin = queda undefined","split(\"=\") corta valores que contienen ="],
   visible: [
     { args: ["?a=1&b=hello%20world"], expected: {"a":"1","b":"hello world"} },

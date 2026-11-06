@@ -24,6 +24,7 @@ const challenge: DebugChallenge = {
   }
   return total;
 }`,
+  hint: "Revisa tres cosas del for: con qué valor empieza la variable acumuladora, en qué índice arranca el contador y hasta dónde llega.",
   bugs: ["total sin inicializar (undefined + n = NaN)","el índice empieza en 1 (se salta el primero)","i <= length lee una posición fuera del array"],
   visible: [
     { args: [[1,2,3,4]], expected: 6 },

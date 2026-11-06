@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Return an array of strings for numbers 1..n: <code>"FizzBuzz"</code> if divisible by 3 and 5, <code>"Fizz"</code> if by 3,
 <code>"Buzz"</code> if by 5, otherwise the number as a string. For <code>n &lt;= 0</code> return an empty array.`,
   examples: [["5","[\"1\",\"2\",\"Fizz\",\"4\",\"Buzz\"]"]],
-  hint: `Evalúa primero el caso % 15. Devuelve String(i).`,
+  hint: "El orden de las comprobaciones importa: ¿qué número cumple dos condiciones a la vez? Revisa también el tipo del valor que devuelves.",
   solution: `function fizzBuzz(n) {
   const out = [];
   for (let i = 1; i <= n; i++) {

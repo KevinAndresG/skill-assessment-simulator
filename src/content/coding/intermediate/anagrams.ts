@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Group words that are anagrams of each other. Each group must be sorted alphabetically and the list of groups
 must be sorted by the first word of each group. Duplicated words stay in the same group.`,
   examples: [["[\"eat\",\"tea\",\"tan\",\"ate\",\"nat\",\"bat\"]","[[\"ate\",\"eat\",\"tea\"],[\"bat\"],[\"nat\",\"tan\"]]"]],
-  hint: `Clave = palabra ordenada (split("").sort().join("")). Map clave → lista. Luego ordena.`,
+  hint: "Dos palabras son anagramas si comparten algo en común tras normalizarlas. Encuentra una \"clave\" igual para todas ellas y agrupa por esa clave.",
   solution: `function groupAnagrams(words) {
   const map = new Map();
   for (const w of words) {

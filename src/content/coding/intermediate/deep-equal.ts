@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Return <code>true</code> if two JSON-like values (null, numbers, strings, booleans, arrays, plain objects) are deeply equal.
 Object key order does not matter. An array is never equal to an object.`,
   examples: [["{a:[1,{b:2}]}, {a:[1,{b:2}]}","true"],["[1,2], {0:1,1:2}","false"]],
-  hint: `Primitivos con ===. Compara Array.isArray de ambos, longitudes de claves y recursión por clave.`,
+  hint: "Separa casos: valores simples, arreglos y objetos. Para estos dos últimos, ¿qué debes comparar primero antes de bajar a cada elemento o clave?",
   solution: `function deepEqual(a, b) {
   if (a === b) return true;
   if (a === null || b === null || typeof a !== 'object' || typeof b !== 'object') return false;

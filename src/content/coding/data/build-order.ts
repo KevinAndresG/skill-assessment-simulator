@@ -13,7 +13,7 @@ const challenge: CodingChallenge = {
 Return a build order where every dependency comes before its dependents. When several projects are ready at the same time,
 pick the alphabetically smallest first. If there is a cycle, return <code>null</code>.`,
   examples: [["{app:[\"ui\",\"auth\"], ui:[\"tokens\"], auth:[], tokens:[]}","[\"auth\",\"tokens\",\"ui\",\"app\"]"]],
-  hint: `Algoritmo de Kahn: cuenta dependencias pendientes; en cada paso ordena los disponibles y toma el primero.`,
+  hint: "Piensa en dependencias: ¿qué tareas se pueden hacer ya porque no esperan a nadie? Al completar una, ¿qué otras quedan libres? Revisa el criterio de desempate del enunciado.",
   solution: `function buildOrder(graph) {
   const pending = {}, dependents = {};
   for (const p of Object.keys(graph)) { pending[p] = graph[p].length; dependents[p] = dependents[p] || []; }

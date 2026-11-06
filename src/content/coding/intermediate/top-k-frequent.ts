@@ -13,7 +13,7 @@ const challenge: CodingChallenge = {
   description: `Return the <code>k</code> most frequent values of <code>nums</code>, ordered from most to least frequent.
 When two values have the same frequency, the SMALLER value goes first. If there are fewer than <code>k</code> distinct values, return all of them.`,
   examples: [["[1,1,1,2,2,3], 2","[1,2]"]],
-  hint: `Cuenta con un Map y ordena las entradas por (frecuencia desc, valor asc). Para O(n) existe la variante bucket sort por frecuencia.`,
+  hint: "Dos pasos: contar cuántas veces aparece cada elemento y luego ordenar con un criterio principal y uno de desempate. Piensa qué estructura te deja contar rápido.",
   solution: `function topKFrequent(nums, k) {
   const freq = new Map();
   for (const n of nums) freq.set(n, (freq.get(n) || 0) + 1);

@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `<code>s</code> may contain any characters. Return <code>true</code> if every <code>()</code>, <code>[]</code>, <code>{}</code>
 is closed by the same type in the correct order. Other characters are ignored.`,
   examples: [["\"{[()]}\"","true"],["\"(]\"","false"],["\"fn(a[0]) { }\"","true"]],
-  hint: `Pila (stack). Al cerrar, compara con el tope; al final la pila debe estar vacía.`,
+  hint: "El último paréntesis abierto debe ser el primero en cerrarse. ¿Qué estructura de datos refleja ese orden y qué condición final indica que todo quedó cerrado?",
   solution: `function isValidBrackets(s) {
   const pairs = { ')':'(', ']':'[', '}':'{' };
   const stack = [];

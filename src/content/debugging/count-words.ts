@@ -16,6 +16,7 @@ characters (spaces, tabs, line breaks). Leading/trailing whitespace is ignored a
   const text = str.trim();
   return text ? text.split(/\\s+/).length : 0;
 }`,
+  hint: "Prueba con \"\", \"  a  b  \" y \"a\\tb\". ¿Qué devuelve split(\" \") en cada caso?",
   bugs: ["''.split(' ') devuelve [''] (longitud 1): un texto vacío no tiene 0 palabras","Espacios repetidos o al borde generan elementos vacíos → trim() y split(/\\s+/)","Tabs y saltos de línea no se separan con split(\" \")"],
   visible: [
     { args: ["hello world"], expected: 2 },

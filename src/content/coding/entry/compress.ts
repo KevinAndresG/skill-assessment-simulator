@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Compress consecutive repeated characters: each run becomes the character followed by its count,
 but the count is omitted when it is 1. Example: <code>"aaabccdd"</code> → <code>"a3bc2d2"</code>.`,
   examples: [["\"aaabccdd\"","\"a3bc2d2\""],["\"abc\"","\"abc\""]],
-  hint: `Recorre con un contador; cuando cambia el carácter (o termina), empuja char + (count > 1 ? count : "").`,
+  hint: "Recorre agrupando caracteres iguales consecutivos. Piensa qué haces al cambiar de carácter, al terminar la cadena y cuando el grupo tiene un solo elemento.",
   solution: `function compress(s) {
   let out = '';
   for (let i = 0; i < s.length; ) {

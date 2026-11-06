@@ -13,7 +13,7 @@ const challenge: CodingChallenge = {
   description: `Return a NEW matrix with <code>matrix</code> rotated 90° clockwise. The matrix may be rectangular (R×C becomes C×R).
 An empty matrix returns <code>[]</code>. Do not mutate the input.`,
   examples: [["[[1,2],[3,4]]","[[3,1],[4,2]]"]],
-  hint: `La fila r de la salida es la columna r de la entrada leída de abajo hacia arriba.`,
+  hint: "Dibuja una matriz 3x3 y mira dónde termina cada fila. ¿Qué relación hay entre las filas de la salida y las columnas de la entrada?",
   solution: `function rotateMatrix(matrix) {
   if (!matrix.length) return [];
   return matrix[0].map((_, c) => matrix.map(row => row[c]).reverse());

@@ -63,6 +63,7 @@ function runReducer(actions) {
   }
   return state;
 }`,
+  hint: "Revisa cada rama: ¿alguna modifica el estado existente en vez de crear uno nuevo? Y mira con atención si hay algún = donde debería haber una comparación.",
   bugs: ["push muta el estado y devuelve la misma referencia (React no re-renderiza)","t.id = action.id es asignación, no comparación","t.done = ... muta el objeto: crear copia con spread"],
   visible: [
     { args: [[{"type":"add","id":1,"text":"a"}]], expected: [{"id":1,"text":"a","done":false}] },

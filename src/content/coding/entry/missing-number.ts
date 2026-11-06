@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   signatureTS: `function missingNumber(nums: number[]): number`,
   description: `<code>nums</code> contains <code>n</code> distinct numbers taken from the range <code>0..n</code>. Return the one number of that range that is missing.`,
   examples: [["[3,0,1]","2"],["[0,1]","2"]],
-  hint: `La suma de 0..n es n(n+1)/2. Resta la suma real del arreglo. O(n) tiempo, O(1) memoria.`,
+  hint: "Conoces cuál debería ser el total si no faltara ninguno. ¿Cómo lo obtienes sin recorrer y cómo lo comparas con lo que tienes?",
   solution: `function missingNumber(nums) {
   const n = nums.length;
   const expected = (n * (n + 1)) / 2;

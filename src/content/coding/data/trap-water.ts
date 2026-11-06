@@ -13,7 +13,7 @@ const challenge: CodingChallenge = {
   description: `<code>heights[i]</code> is the height of the bar at position <code>i</code> (width 1). After raining, return how many units of water
 stay trapped between the bars.`,
   examples: [["[0,1,0,2,1,0,1,3,2,1,2,1]","6"]],
-  hint: `El agua sobre una barra es min(maxIzquierda, maxDerecha) − altura. Dos punteros (lo, hi) con maxL y maxR resuelven en O(n) tiempo y O(1) memoria.`,
+  hint: "Fíjate en una sola barra: ¿de qué dos cosas depende cuánta agua se acumula encima? Si lo resuelves por barra, piensa cómo conocer esos dos datos sin recalcularlos cada vez.",
   solution: `function trapWater(heights) {
   let lo = 0, hi = heights.length - 1;
   let maxL = 0, maxR = 0, water = 0;

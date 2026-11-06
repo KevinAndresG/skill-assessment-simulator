@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Return <code>true</code> if <code>s</code> is a palindrome after converting all uppercase letters to lowercase
 and removing every non-alphanumeric character. An empty string is a palindrome.`,
   examples: [["\"A man, a plan, a canal: Panama\"","true"],["\"race a car\"","false"]],
-  hint: `Normaliza con toLowerCase().replace(/[^a-z0-9]/g, "") y usa dos punteros.`,
+  hint: "Primero normaliza (ignora mayúsculas y símbolos). Después compara el texto con su reverso o usa dos índices desde los extremos.",
   solution: `function isPalindrome(s) {
   const c = s.toLowerCase().replace(/[^a-z0-9]/g, '');
   let i = 0, j = c.length - 1;

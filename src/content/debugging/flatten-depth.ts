@@ -30,6 +30,7 @@ const challenge: DebugChallenge = {
   }
   return out;
 }`,
+  hint: "Observa qué valor recibe la llamada recursiva con el operador de decremento postfijo, y si ese operador altera la variable que usan los siguientes elementos.",
   bugs: ["depth-- pasa el valor SIN decrementar a la llamada recursiva (post-decremento), así que siempre aplana todo","Además muta depth del nivel actual y afecta a los hermanos siguientes → depth - 1"],
   visible: [
     { args: [[1,[2,[3,[4]]]],1], expected: [1,2,[3,[4]]] },

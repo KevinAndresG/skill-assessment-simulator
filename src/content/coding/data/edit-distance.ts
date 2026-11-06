@@ -11,7 +11,7 @@ const challenge: CodingChallenge = {
   signatureTS: `function editDistance(a: string, b: string): number`,
   description: `Return the minimum number of single-character operations (insert, delete or replace) needed to turn <code>a</code> into <code>b</code> (Levenshtein distance).`,
   examples: [["\"horse\", \"ros\"","3"],["\"kitten\", \"sitting\"","3"]],
-  hint: `dp[i][j] = distancia entre a[0..i) y b[0..j). Si a[i-1] === b[j-1] copia dp[i-1][j-1]; si no, 1 + min(insertar, borrar, reemplazar). Base: dp[i][0] = i, dp[0][j] = j.`,
+  hint: "Es programación dinámica sobre prefijos de ambas cadenas. Define qué significa cada celda de la tabla, qué valores iniciales tiene la primera fila y columna, y qué tres operaciones llegan a una celda.",
   solution: `function editDistance(a, b) {
   const m = a.length, n = b.length;
   const dp = Array.from({ length: m + 1 }, (_, i) => [i, ...Array(n).fill(0)]);

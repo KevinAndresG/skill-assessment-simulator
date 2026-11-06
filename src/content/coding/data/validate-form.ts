@@ -18,7 +18,7 @@ function validateForm(values: Record<string, unknown>, rules: Record<string, Rul
 <br>• <code>min</code> → <code>"Must be &gt;= N"</code> &nbsp;• <code>max</code> → <code>"Must be &lt;= N"</code> (on Number(value))
 <br>Return an object with only the fields that have errors.`,
   examples: [["{email:\"x\", age:15}, {email:{required:true,pattern:\"[^@]+@[^@]+\"}, age:{min:18}}","{email:\"Invalid format\", age:\"Must be >= 18\"}"]],
-  hint: `new RegExp("^(?:" + pattern + ")$"). Un if/else-if por regla y "continue" cuando haya error.`,
+  hint: "Recorre las reglas de cada campo en orden y detente en el primer error de ese campo. Piensa cómo convertir un string en una regex y cómo exigir que cubra el valor completo, no solo una parte.",
   solution: `function validateForm(values, rules) {
   const errors = {};
   for (const [field, r] of Object.entries(rules)) {

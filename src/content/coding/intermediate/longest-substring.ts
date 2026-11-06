@@ -11,7 +11,7 @@ const challenge: CodingChallenge = {
   signatureTS: `function lengthOfLongestSubstring(s: string): number`,
   description: `Return the length of the longest substring of <code>s</code> with no repeated characters. Aim for O(n) (sliding window).`,
   examples: [["\"abcabcbb\"","3"],["\"bbbbb\"","1"],["\"pwwkew\"","3"]],
-  hint: `Ventana deslizante: Map char → último índice; mueve el inicio a max(inicio, último + 1).`,
+  hint: "Ventana que crece por la derecha. Cuando aparece un carácter repetido dentro de la ventana, ¿hasta dónde debes mover el borde izquierdo?",
   solution: `function lengthOfLongestSubstring(s) {
   const last = new Map();
   let start = 0, best = 0;

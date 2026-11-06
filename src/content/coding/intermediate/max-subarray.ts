@@ -11,7 +11,7 @@ const challenge: CodingChallenge = {
   signatureTS: `function maxSubarray(nums: number[]): number`,
   description: `Return the largest sum of a non-empty contiguous subarray. <code>nums</code> has at least one element. O(n).`,
   examples: [["[-2,1,-3,4,-1,2,1,-5,4]","6"]],
-  hint: `Kadane: cur = max(n, cur + n); best = max(best, cur). Inicia con nums[0] (todo negativo).`,
+  hint: "En cada posición decide: ¿conviene extender la suma acumulada o empezar de nuevo desde aquí? Cuidado con arreglos de solo negativos.",
   solution: `function maxSubarray(nums) {
   let cur = nums[0], best = nums[0];
   for (let i = 1; i < nums.length; i++) {

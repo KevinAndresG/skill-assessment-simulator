@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   signatureTS: `function kthLargest(nums: number[], k: number): number`,
   description: `Return the k-th largest element (1-based, duplicates count). Do not mutate the input.`,
   examples: [["[3,2,1,5,6,4], 2","5"],["[3,2,3,1,2,4,5,5,6], 4","4"]],
-  hint: `Ordenar una copia descendente con (a, b) => b - a es suficiente aquí. Nunca uses .sort() sin comparador con números.`,
+  hint: "Ordena una copia de mayor a menor y mira una posición. Cuidado: el orden por defecto de sort en números no es el numérico.",
   solution: `function kthLargest(nums, k) {
   return [...nums].sort((a, b) => b - a)[k - 1];
 }`,

@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Simulate a throttle: given ascending timestamps (ms), keep the first event and then keep an event only if at least
 <code>wait</code> ms have passed since the last KEPT event. Return the kept timestamps.`,
   examples: [["[0,50,100,120,250,260], 100","[0,100,250]"]],
-  hint: `Compara contra el último conservado, no contra el anterior.`,
+  hint: "Decide contra qué evento comparas el tiempo de cada nuevo evento: ¿el inmediato anterior en la lista o el último que realmente conservaste?",
   solution: `function throttleEvents(timestamps, wait) {
   const out = [];
   for (const t of timestamps) if (!out.length || t - out[out.length - 1] >= wait) out.push(t);

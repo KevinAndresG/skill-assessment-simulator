@@ -49,6 +49,7 @@ function runMemo(pairs) {
   const results = pairs.map(([a, b]) => add(a, b));
   return { results, calls };
 }`,
+  hint: "Dos fallos: ¿de qué argumentos depende la clave del caché? y ¿qué valores falsy podría devolver fn que hagan que parezca \"no cacheado\"?",
   bugs: ["La clave del caché es solo el primer argumento: add(1, 2) y add(1, 3) devuelven lo mismo","if (cache[a]) trata 0 como \"no cacheado\" y vuelve a ejecutar fn → usar has()"],
   visible: [
     { args: [[[1,2],[1,3],[1,2]]], expected: {"results":[3,4,3],"calls":2} },

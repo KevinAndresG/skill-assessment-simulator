@@ -14,7 +14,7 @@ function totalsByClient(invoices: Invoice[]): { client: string; total: number }[
 (<code>Math.round(x * 100) / 100</code>). Return <code>[{client, total}]</code> sorted by total descending, then client ascending.
 Clients with no paid invoices are not included.`,
   examples: [["[{client:\"A\",amount:10.1,status:\"paid\"},{client:\"B\",amount:5,status:\"pending\"},{client:\"A\",amount:0.2,status:\"paid\"}]","[{client:\"A\",total:10.3}]"]],
-  hint: `reduce a un Map/objeto, luego Object.entries → map → sort con dos criterios. Redondea al final.`,
+  hint: "Primero agrupa y acumula por cliente, luego convierte a lista y ordena con dos criterios. Piensa en qué momento conviene redondear para no arrastrar errores.",
   solution: `function totalsByClient(invoices) {
   const sums = {};
   for (const inv of invoices) if (inv.status === 'paid') sums[inv.client] = (sums[inv.client] || 0) + inv.amount;

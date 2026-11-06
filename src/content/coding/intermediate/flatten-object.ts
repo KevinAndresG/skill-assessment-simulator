@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Flatten nested plain objects into one level using dot-separated keys. Arrays, <code>null</code> and primitives are leaf values
 (kept as they are). Empty nested objects produce no keys.`,
   examples: [["{a:1, b:{c:2, d:{e:3}}, f:[1,2]}","{\"a\":1,\"b.c\":2,\"b.d.e\":3,\"f\":[1,2]}"]],
-  hint: `Recursión con prefijo. Es objeto "plano" si typeof === "object", no es null y no es array.`,
+  hint: "Recursión que arrastra el camino de claves acumulado. Define qué cuenta como objeto que se sigue aplanando y qué como valor final (nulos y arreglos).",
   solution: `function flattenObject(obj) {
   const out = {};
   const walk = (o, prefix) => {

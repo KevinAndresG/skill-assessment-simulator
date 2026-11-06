@@ -55,6 +55,8 @@ export interface DebugChallenge extends ChallengeBase {
   requirements: string;
   /** Código inicial con bugs. Debe fallar al menos un test. */
   buggyCode: string;
+  /** Pista orientativa sin revelar el fix. */
+  hint: string;
   /** Lista de bugs, se muestra al pedir la solución. */
   bugs: string[];
 }

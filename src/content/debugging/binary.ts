@@ -29,6 +29,7 @@ The current version sometimes never finishes (the platform reports a timeout and
   }
   return -1;
 }`,
+  hint: "Traza a mano una búsqueda con 2 elementos. ¿Siempre se achica el rango en cada vuelta? Revisa que los dos extremos usen la misma convención (inclusivo o exclusivo).",
   bugs: ["lo = mid puede no avanzar → bucle infinito","límites inconsistentes: hi = length con hi = mid - 1 se salta elementos"],
   visible: [
     { args: [[1,3,5,7], 5], expected: 2 },

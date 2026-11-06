@@ -13,7 +13,7 @@ const challenge: CodingChallenge = {
   description: `Return the second largest DISTINCT value of <code>nums</code>, or <code>null</code> if there are fewer than two distinct values.
 Do not mutate the input.`,
   examples: [["[3,1,4,2]","3"],["[5,5,5]","null"]],
-  hint: `Una sola pasada con dos variables (first, second). Cuidado con los duplicados del máximo: [2,2,1] → 1.`,
+  hint: "Puedes hacerlo en una pasada con dos variables. Prueba con duplicados del máximo y con arreglos de un solo valor distinto: ¿qué debería devolver?",
   solution: `function secondLargest(nums) {
   let first = -Infinity, second = -Infinity;
   for (const n of nums) {

@@ -14,7 +14,7 @@ function flatten(arr: Nested[]): number[]`,
   description: `Flatten an arbitrarily nested array into a single-level array, preserving order.
 Do NOT use <code>Array.prototype.flat</code>. Do not mutate the input.`,
   examples: [["[1,[2,[3,[4]],5]]","[1,2,3,4,5]"]],
-  hint: `Recursión o una pila iterativa. Array.isArray(x).`,
+  hint: "Cada elemento es un valor o un arreglo anidado. Piensa en recursión (o una pila) y cómo detectar con seguridad que algo es un arreglo.",
   solution: `function flatten(arr) {
   const out = [];
   const walk = a => { for (const x of a) Array.isArray(x) ? walk(x) : out.push(x); };

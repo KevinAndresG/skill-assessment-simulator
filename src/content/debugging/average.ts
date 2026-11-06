@@ -24,6 +24,7 @@ An empty array returns <code>0</code>.`,
   }
   return Math.round((sum / nums.length) * 100) / 100;
 }`,
+  hint: "Prueba con [] y fíjate en el resultado. Luego revisa el límite del for: ¿en qué índice termina la última iteración y qué hay en esa posición?",
   bugs: ["i <= nums.length lee una posición de más (undefined) y el resultado es NaN → usar i < nums.length","Array vacío: 0 / 0 = NaN → devolver 0 antes de calcular"],
   visible: [
     { args: [[1,2,3]], expected: 2 },

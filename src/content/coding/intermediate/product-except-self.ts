@@ -13,7 +13,7 @@ const challenge: CodingChallenge = {
   description: `Return an array where position <code>i</code> holds the product of every element of <code>nums</code> except <code>nums[i]</code>.
 Do it in O(n) <b>without using division</b> (the input may contain zeros).`,
   examples: [["[1,2,3,4]","[24,12,8,6]"]],
-  hint: `Producto de prefijos × producto de sufijos. Una pasada de izquierda a derecha y otra de derecha a izquierda sobre el mismo resultado.`,
+  hint: "Sin dividir: el resultado de cada posición es lo que hay a su izquierda por lo que hay a su derecha. ¿Cómo acumular cada lado en una pasada?",
   solution: `function productExceptSelf(nums) {
   const n = nums.length;
   const res = Array(n).fill(1);

@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Return the indices <code>[i, j]</code> (with <code>i &lt; j</code>) of the two numbers that add up to <code>target</code>.
 Exactly one solution exists. You may not use the same element twice. Aim for O(n).`,
   examples: [["[2,7,11,15], 9","[0,1]"],["[3,2,4], 6","[1,2]"]],
-  hint: `Map de valor → índice. Por cada número, busca target - n antes de guardarlo.`,
+  hint: "La fuerza bruta compara todos los pares. ¿Qué podrías recordar de lo ya recorrido para saber en una sola pasada si el complemento ya apareció?",
   solution: `function twoSum(nums, target) {
   const seen = new Map();
   for (let j = 0; j < nums.length; j++) {

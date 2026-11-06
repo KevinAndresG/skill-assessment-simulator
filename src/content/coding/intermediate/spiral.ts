@@ -11,7 +11,7 @@ const challenge: CodingChallenge = {
   signatureTS: `function spiralOrder(matrix: number[][]): number[]`,
   description: `Return all elements of an m×n matrix in clockwise spiral order, starting at the top-left.`,
   examples: [["[[1,2,3],[4,5,6],[7,8,9]]","[1,2,3,6,9,8,7,4,5]"]],
-  hint: `Cuatro límites (top, bottom, left, right). Revisa top <= bottom y left <= right antes de las vueltas de regreso.`,
+  hint: "Mantén cuatro límites que se van cerrando. Después de recorrer cada lado, ¿qué pasa si la matriz era de una sola fila o columna? Revisa esos casos antes de volver.",
   solution: `function spiralOrder(matrix) {
   const out = [];
   if (!matrix.length) return out;

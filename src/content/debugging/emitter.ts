@@ -84,6 +84,7 @@ function runEmitter(emits) {
   e.off('nope', a);
   return log;
 }`,
+  hint: "Hay tres fallos distintos: la condición del filtro en off, qué función se registra realmente en once, y qué pasa al quitar un listener de un evento que nunca se registró.",
   bugs: ["off usa === en vez de !==: conserva SOLO el listener a quitar","once se desuscribe con off(evt, fn) pero lo registrado es el wrapper → hay que quitar el wrapper","off lanza TypeError con eventos desconocidos (handlers[evt] es undefined)"],
   visible: [
     { args: [2], expected: ["a","b","a"] },

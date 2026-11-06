@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `<code>prices[i]</code> is the price of a stock on day i. Choose one day to buy and a later day to sell.
 Return the maximum profit, or <code>0</code> if no profit is possible. Must run in O(n).`,
   examples: [["[7,1,5,3,6,4]","5"],["[7,6,4,3,1]","0"]],
-  hint: `Guarda el mínimo visto hasta ahora y la mejor diferencia. Un solo recorrido.`,
+  hint: "Comprar debe ocurrir antes de vender. Mientras recorres, ¿qué dato del pasado te basta para saber la mejor ganancia si vendes hoy?",
   solution: `function maxProfit(prices) {
   let min = Infinity, best = 0;
   for (const p of prices) {

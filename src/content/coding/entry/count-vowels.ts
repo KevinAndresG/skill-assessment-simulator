@@ -11,7 +11,7 @@ const challenge: CodingChallenge = {
   signatureTS: `function countVowels(str: string): number`,
   description: `Return how many vowels (<code>a e i o u</code>, upper or lower case) <code>str</code> contains. Accented letters are not counted.`,
   examples: [["\"Hello World\"","3"]],
-  hint: `Puedes recorrer los caracteres con un Set de vocales, o usar una regex /[aeiou]/gi con match (cuidado: match devuelve null si no hay coincidencias).`,
+  hint: "Recorre y decide si cada carácter es vocal, sin importar mayúsculas. Si usas coincidencias de regex, ¿qué devuelve cuando no hay ninguna?",
   solution: `function countVowels(str) {
   return (str.match(/[aeiou]/gi) || []).length;
 }`,

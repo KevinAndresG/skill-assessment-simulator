@@ -21,6 +21,7 @@ plain nested objects are merged recursively, arrays and other values are replace
   }
   return out;
 }`,
+  hint: "Compara el objeto defaults antes y después de llamar. Y piensa qué pasa cuando overrides trae un objeto anidado.",
   bugs: ["Object.assign muta defaults (y devuelve la misma referencia)","La mezcla es superficial: un objeto anidado en overrides reemplaza todo el objeto de defaults en vez de combinarse"],
   visible: [
     { args: [{"a":1,"b":{"c":2,"d":3}},{"b":{"c":9}}], expected: {"a":1,"b":{"c":9,"d":3}} },

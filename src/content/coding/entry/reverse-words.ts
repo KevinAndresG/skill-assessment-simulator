@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Given a string <code>s</code>, return the words in reverse order joined by a single space.
 Words are separated by one or more spaces. Leading/trailing spaces must be removed.`,
   examples: [["\"the sky is blue\"","\"blue is sky the\""],["\"  hello   world \"","\"world hello\""]],
-  hint: `trim() + split(/\\s+/) + reverse() + join. Ojo con el string vacío o solo espacios.`,
+  hint: "Separa en palabras, invierte el orden y vuelve a unir. Prueba con espacios repetidos, bordes con espacios y cadena vacía.",
   solution: `function reverseWords(s) {
   const t = s.trim();
   if (!t) return '';

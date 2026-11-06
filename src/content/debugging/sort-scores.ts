@@ -15,6 +15,7 @@ const challenge: DebugChallenge = {
   solution: `function sortScores(scores) {
   return [...scores].sort((a, b) => a - b);
 }`,
+  hint: "Prueba con [10, 9, 1]. ¿Cómo compara sort por defecto? Y fíjate si el array original queda igual después de llamar.",
   bugs: ["sort() sin comparador ordena como strings (\"10\" < \"9\")","sort() muta el array original"],
   visible: [
     { args: [[3,1,2]], expected: [1,2,3] },

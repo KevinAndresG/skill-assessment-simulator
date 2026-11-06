@@ -13,7 +13,7 @@ const challenge: CodingChallenge = {
   description: `Merge all overlapping intervals and return them sorted by start. Touching intervals (e.g. [1,3] and [3,5]) also merge.
 The input may be unsorted.`,
   examples: [["[[1,3],[8,10],[2,6],[15,18]]","[[1,6],[8,10],[15,18]]"],["[[1,4],[4,5]]","[[1,5]]"]],
-  hint: `Ordena una copia por inicio y compara cada intervalo con el último fusionado.`,
+  hint: "Si los intervalos estuvieran ordenados, ¿cómo sabrías si el siguiente se solapa con el anterior? Ordena una copia, no el original.",
   solution: `function mergeIntervals(intervals) {
   const sorted = intervals.map(i => [...i]).sort((a, b) => a[0] - b[0]);
   const out = [];

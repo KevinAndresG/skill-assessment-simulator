@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Convert a valid Roman numeral (I=1, V=5, X=10, L=50, C=100, D=500, M=1000) to an integer.
 Subtractive notation applies: IV=4, IX=9, XL=40, XC=90, CD=400, CM=900.`,
   examples: [["\"MCMXCIV\"","1994"],["\"LVIII\"","58"]],
-  hint: `Si el valor actual es menor que el siguiente, réstalo; si no, súmalo.`,
+  hint: "Recorre de izquierda a derecha comparando cada símbolo con el siguiente. ¿Cuándo un valor resta en lugar de sumar?",
   solution: `function romanToInt(s) {
   const v = { I:1, V:5, X:10, L:50, C:100, D:500, M:1000 };
   let total = 0;

@@ -18,6 +18,7 @@ unless they are also divisible by 400 (1900 is not leap, 2000 is).`,
   solution: `function isLeapYear(year) {
   return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
 }`,
+  hint: "Prueba con 1900 y con 2000. La regla de divisible por 100 tiene su propia excepción: ¿está contemplada?",
   bugs: ["Falta la excepción de la excepción: los años divisibles por 400 sí son bisiestos (2000, 2400)"],
   visible: [
     { args: [2024], expected: true },

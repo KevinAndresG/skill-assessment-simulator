@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Split <code>s</code> on underscores, hyphens and whitespace (ignore empty pieces). The first word is fully lowercased;
 every following word has its first letter uppercased and the rest lowercased. Join without separators.`,
   examples: [["\"hello_world-foo bar\"","\"helloWorldFooBar\""],["\"  API  response_CODE \"","\"apiResponseCode\""]],
-  hint: `split(/[_\\-\\s]+/).filter(Boolean) y luego map con índice.`,
+  hint: "Parte el texto por los separadores y descarta vacíos. La primera palabra va en minúscula; ¿cómo tratas las demás?",
   solution: `function toCamelCase(s) {
   return s.split(/[_\\-\\s]+/).filter(Boolean)
     .map((w, i) => i === 0 ? w.toLowerCase() : w[0].toUpperCase() + w.slice(1).toLowerCase())

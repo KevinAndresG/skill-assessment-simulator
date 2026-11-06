@@ -30,6 +30,7 @@ function fakeFetch(id) {
 async function loadUsers(ids) {
   return Promise.all(ids.map(id => fakeFetch(id)));
 }`,
+  hint: "forEach con una función async no espera nada. ¿Qué pasa con el return antes de que lleguen los datos? Y piensa si el orden de llegada es el orden de los ids.",
   bugs: ["forEach no espera callbacks async: devuelve [] antes de que terminen","push en orden de llegada, no en el orden de ids → usar Promise.all + map"],
   visible: [
     { args: [[1,2]], expected: [{"id":1,"name":"user-1"},{"id":2,"name":"user-2"}] },

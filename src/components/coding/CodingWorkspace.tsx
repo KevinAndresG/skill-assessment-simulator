@@ -145,7 +145,7 @@ function Workspace({ challenge, exam }: CodingWorkspaceProps) {
       </div>
 
       {help === 'hint' && (
-        <Banner tone="info">💡 {challenge.kind === 'coding' ? challenge.hint : 'Revisa las inicializaciones, los límites de los loops, la mutación, las comparaciones, el this y el async.'}</Banner>
+        <Banner tone="info">💡 {challenge.hint}</Banner>
       )}
       {help === 'solution' && (
         <>

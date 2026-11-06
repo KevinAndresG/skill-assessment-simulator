@@ -11,7 +11,7 @@ const challenge: CodingChallenge = {
   signatureTS: `function binarySearch(arr: number[], target: number): number`,
   description: `<code>arr</code> is sorted ascending with unique values. Return the index of <code>target</code> or <code>-1</code>. Must be O(log n).`,
   examples: [["[-1,0,3,5,9,12], 9","4"],["[-1,0,3,5,9,12], 2","-1"]],
-  hint: `lo = 0, hi = n - 1, while (lo <= hi). Avanza con mid + 1 / mid - 1 para no quedar en bucle infinito.`,
+  hint: "Mantén un rango [bajo, alto] y descarta la mitad en cada paso. Revisa la condición del bucle y cómo mueves los extremos para evitar un bucle infinito.",
   solution: `function binarySearch(arr, target) {
   let lo = 0, hi = arr.length - 1;
   while (lo <= hi) {

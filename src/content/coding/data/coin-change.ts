@@ -13,7 +13,7 @@ const challenge: CodingChallenge = {
   description: `Given coin denominations <code>coins</code> (unlimited supply of each) return the FEWEST coins needed to make <code>amount</code>,
 or <code>-1</code> if it is impossible. <code>amount = 0</code> needs 0 coins. A greedy approach is not always correct (<code>[1,3,4]</code>, 6 → 2).`,
   examples: [["[1,2,5], 11","3"],["[2], 3","-1"]],
-  hint: `Programación dinámica: dp[a] = 1 + min(dp[a - c]) para cada moneda c ≤ a. Inicializa dp con Infinity y dp[0] = 0.`,
+  hint: "Resuelve primero para montos pequeños y reutiliza esos resultados para los grandes. Piensa qué respuesta tiene el monto 0 y cómo marcar un monto imposible.",
   solution: `function coinChange(coins, amount) {
   const dp = Array(amount + 1).fill(Infinity);
   dp[0] = 0;

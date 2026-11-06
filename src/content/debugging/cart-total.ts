@@ -16,6 +16,7 @@ const challenge: DebugChallenge = {
   const total = items.reduce((sum, it) => sum + Number(it.price) * it.qty, 0);
   return Math.round(total * 100) / 100;
 }`,
+  hint: "Revisa con qué valor empieza el acumulador del reduce y qué tipo devuelve el método de redondeo.",
   bugs: ["reduce sin valor inicial: el acumulador empieza siendo el primer objeto (y con [] lanza TypeError)","toFixed devuelve string","convertir price con Number()"],
   visible: [
     { args: [[{"price":10,"qty":2},{"price":"5.5","qty":1}]], expected: 25.5 },

@@ -60,6 +60,7 @@ async function runRetry(failures, times) {
     return ['failed', calls];
   }
 }`,
+  hint: "Mira qué retorna el try: ¿la promesa o su resultado ya resuelto? El catch solo captura errores que ocurren dentro del propio bloque.",
   bugs: ["return fn() devuelve la promesa sin esperarla: el rechazo ocurre fuera del try/catch y nunca se reintenta → return await fn()"],
   visible: [
     { args: [2,3], expected: ["ok",3] },

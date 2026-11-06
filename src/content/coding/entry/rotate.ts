@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   signatureTS: `function rotateRight<T>(arr: T[], k: number): T[]`,
   description: `Return a NEW array rotated to the right by <code>k</code> steps (k ≥ 0, may be larger than the length). Do not mutate the input.`,
   examples: [["[1,2,3,4,5], 2","[4,5,1,2,3]"]],
-  hint: `k % n; luego slice(-k).concat(slice(0, -k)). Cuidado con n = 0 y k % n = 0.`,
+  hint: "Rotar k veces más que el largo equivale a rotar menos. Piensa cómo reducir k y qué casos especiales aparecen con arreglo vacío o k múltiplo del largo.",
   solution: `function rotateRight(arr, k) {
   const n = arr.length;
   if (n === 0) return [];

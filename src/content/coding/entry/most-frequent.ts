@@ -12,7 +12,7 @@ const challenge: CodingChallenge = {
   description: `Return the most frequent letter in <code>s</code>, case-insensitive, as lowercase. Only letters a–z count.
 On a tie return the alphabetically first letter. If there are no letters return <code>""</code>.`,
   examples: [["\"Hello World\"","\"l\""],["\"aabb\"","\"a\""]],
-  hint: `Objeto/Map de frecuencias sobre s.toLowerCase(); recorre de "a" a "z" para resolver empates.`,
+  hint: "Cuenta las apariciones de cada letra normalizando mayúsculas. Piensa cómo resolver un empate de forma determinista.",
   solution: `function mostFrequentChar(s) {
   const freq = {};
   for (const ch of s.toLowerCase()) if (ch >= 'a' && ch <= 'z') freq[ch] = (freq[ch] || 0) + 1;

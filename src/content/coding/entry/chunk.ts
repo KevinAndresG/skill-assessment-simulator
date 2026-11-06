@@ -13,7 +13,7 @@ const challenge: CodingChallenge = {
   description: `Split <code>arr</code> into groups of length <code>size</code>. The last group may be smaller.
 If <code>size &lt;= 0</code> return an empty array. Do not mutate the input.`,
   examples: [["[1,2,3,4,5], 2","[[1,2],[3,4],[5]]"]],
-  hint: `for con i += size y slice(i, i + size). slice no muta.`,
+  hint: "Avanza de a un bloque por vez. Piensa qué pasa con el último bloque si no está completo y si tu método de cortar modifica el arreglo.",
   solution: `function chunk(arr, size) {
   if (size <= 0) return [];
   const out = [];

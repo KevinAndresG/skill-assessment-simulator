@@ -14,7 +14,7 @@ const challenge: CodingChallenge = {
   description: `Return <code>{ data, page, pageSize, total, totalPages }</code>. <code>page</code> is 1-based.
 <code>totalPages = Math.ceil(total / pageSize)</code>. If <code>page</code> is out of range, <code>data</code> is <code>[]</code> (other fields still filled).`,
   examples: [["[1..5], 2, 2","{data:[3,4],page:2,pageSize:2,total:5,totalPages:3}"]],
-  hint: `start = (page - 1) * pageSize; slice(start, start + pageSize). page < 1 → [].`,
+  hint: "Calcula a partir de qué posición empieza la página pedida y cuántos elementos toma. Piensa qué devuelves con páginas fuera de rango.",
   solution: `function paginate(items, page, pageSize) {
   const total = items.length;
   const totalPages = Math.ceil(total / pageSize);

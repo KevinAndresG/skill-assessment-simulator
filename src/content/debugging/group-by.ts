@@ -24,6 +24,7 @@ its value is the array of items with that value, in the original order. An empty
     return acc;
   }, {});
 }`,
+  hint: "Dentro del reduce, la primera vez que aparece una clave, ¿qué hay en acc[k]? Y fíjate en el tipo del valor inicial: ¿corresponde a lo que devuelve la función?",
   bugs: ["Nunca se inicializa el grupo: acc[k] es undefined y .push lanza TypeError","El valor inicial del reduce es [] en vez de {} (las claves se pierden al serializar)"],
   visible: [
     { args: [[{"t":"a","n":1},{"t":"b","n":2},{"t":"a","n":3}],"t"], expected: {"a":[{"t":"a","n":1},{"t":"a","n":3}],"b":[{"t":"b","n":2}]} },

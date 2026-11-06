@@ -30,6 +30,7 @@ function formatAll(names) {
 function formatAll(names) {
   return formatter.format(names);
 }`,
+  hint: "Dentro del callback de map, ¿a qué apunta this? Compara cómo se comportan una función normal y una flecha respecto al this.",
   bugs: ["una function normal dentro de map pierde el this del objeto → arrow function (o pasar thisArg)"],
   visible: [
     { args: [["Lee","Kim"]], expected: ["Mr. Lee","Mr. Kim"] },

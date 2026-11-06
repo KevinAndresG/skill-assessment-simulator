@@ -24,6 +24,7 @@ const challenge: DebugChallenge = {
     return true;
   });
 }`,
+  hint: "includes con objetos compara referencias. Dos objetos con el mismo id, ¿son el mismo objeto para JS?",
   bugs: ["includes compara objetos por referencia, no por id","(mejor) usar Set para O(1)"],
   visible: [
     { args: [[{"id":1,"n":"a"},{"id":2,"n":"b"},{"id":1,"n":"c"}]], expected: [{"id":1,"n":"a"},{"id":2,"n":"b"}] },

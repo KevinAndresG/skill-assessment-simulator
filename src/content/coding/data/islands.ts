@@ -13,7 +13,7 @@ const challenge: CodingChallenge = {
   description: `<code>grid</code> is a matrix of 1 (land) and 0 (water). An island is a group of 1s connected horizontally or vertically.
 Return the number of islands. Do not mutate the input.`,
   examples: [["[[1,1,0],[0,1,0],[1,0,1]]","3"]],
-  hint: `BFS/DFS desde cada 1 no visitado, con un Set o matriz de visitados (no modifiques grid).`,
+  hint: "Cada isla es un grupo de celdas conectadas. Al encontrar una celda de tierra, ¿cómo \"consumes\" toda su isla para no contarla otra vez? Cuidado con modificar la entrada.",
   solution: `function countIslands(grid) {
   const R = grid.length, C = R ? grid[0].length : 0;
   const seen = Array.from({ length: R }, () => Array(C).fill(false));
