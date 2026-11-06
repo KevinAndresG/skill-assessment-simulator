@@ -11,6 +11,8 @@ import vm from 'node:vm';
 import { codingChallenges } from '../src/content/coding';
 import { debugChallenges } from '../src/content/debugging';
 import { quizQuestions } from '../src/content/quiz';
+import { regexChallenges } from '../src/content/regex';
+import { EVAL_SRC } from '../src/lib/regex/evaluate';
 import type { Challenge, TestCase } from '../src/content/types';
 
 function deepEqual(a: unknown, b: unknown): boolean {
@@ -75,7 +77,27 @@ async function main() {
     if (!Number.isInteger(q.answer) || q.answer < 0 || q.answer >= q.options.length) errors.push(`${q.id}: answer fuera de rango`);
   }
 
-  console.log(`Algoritmos: ${codingChallenges.length} · Debugging: ${debugChallenges.length} · Preguntas: ${quizQuestions.length}`);
+  // Regex: la solución de referencia debe pasar todos los casos y los ids deben ser únicos.
+  const evalRegex = vm.runInNewContext(`${EVAL_SRC}; __evalRegex`) as (
+    mode: string, pattern: string, flags: string, replacement: string, cases: unknown[],
+  ) => { fatal?: string; results?: { pass: boolean; got?: unknown; error?: string }[] };
+  const rxIds = new Set<string>();
+  for (const c of regexChallenges) {
+    if (rxIds.has(c.id) || ids.has(c.id)) errors.push(`id duplicado: ${c.id}`);
+    rxIds.add(c.id);
+    if (!/^rx-[a-z0-9-]+$/.test(c.id)) errors.push(`${c.id}: el id debe ser rx-kebab-case`);
+    if (!c.visible.length) errors.push(`${c.id}: necesita al menos un caso visible`);
+    const cases = [...c.visible, ...c.hidden];
+    const kind = c.mode === 'test' ? 'boolean' : c.mode === 'extract' ? 'object' : 'string';
+    for (const [i, t] of cases.entries()) if (typeof t.expected !== kind) errors.push(`${c.id}: caso #${i + 1} con expected de tipo incorrecto para el modo ${c.mode}`);
+    if (c.mode === 'test' && !(cases.some(t => t.expected === true) && cases.some(t => t.expected === false)))
+      errors.push(`${c.id}: necesita casos que coinciden Y que no coinciden`);
+    const r = evalRegex(c.mode, c.solution.pattern, c.solution.flags ?? '', c.solution.replacement ?? '', cases);
+    if (r.fatal) errors.push(`${c.id}: la solución no compila → ${r.fatal}`);
+    else r.results!.forEach((x, i) => !x.pass && errors.push(`${c.id}: la solución falla el caso #${i + 1} (${JSON.stringify(cases[i].input)}) → ${x.error ?? JSON.stringify(x.got)}`));
+  }
+
+  console.log(`Regex: ${regexChallenges.length} · Algoritmos: ${codingChallenges.length} · Debugging: ${debugChallenges.length} · Preguntas: ${quizQuestions.length}`);
   if (errors.length) {
     console.error(`\n✗ ${errors.length} problema(s):\n- ` + errors.join('\n- '));
     process.exit(1);

@@ -12,7 +12,7 @@ import { Tag } from '@/components/ui';
 export interface ChallengeListItem {
   id: string;
   title: string;
-  minutes: number;
+  minutes?: number;
   level?: CodingLevel;
 }
 
@@ -44,7 +44,7 @@ export function ChallengeSidebar({ items, basePath, showLevelFilter }: { items: 
               <Link href={href} className={cx('item', pathname === href && 'on')} aria-current={pathname === href ? 'page' : undefined} style={{ textDecoration: 'none' }}>
                 {item.title}
                 <span className="sc">
-                  {score == null ? <Tag>{item.minutes}′</Tag> : <Tag tone={score === 100 ? 'ok' : 'ko'}>{score}%</Tag>}
+                  {score == null ? (item.minutes ? <Tag>{item.minutes}′</Tag> : null) : <Tag tone={score === 100 ? 'ok' : 'ko'}>{score}%</Tag>}
                 </span>
               </Link>
             </li>

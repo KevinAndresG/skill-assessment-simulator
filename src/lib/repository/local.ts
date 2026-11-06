@@ -1,5 +1,6 @@
 import { codingChallenges } from '@/content/coding';
 import { debugChallenges } from '@/content/debugging';
+import { regexChallenges } from '@/content/regex';
 import { quizQuestions } from '@/content/quiz';
 import type { ContentRepository } from './types';
 
@@ -15,6 +16,12 @@ export const localContentRepository: ContentRepository = {
   },
   async getDebug(id) {
     return debugChallenges.find(c => c.id === id) ?? null;
+  },
+  async listRegex() {
+    return regexChallenges;
+  },
+  async getRegex(id) {
+    return regexChallenges.find(c => c.id === id) ?? null;
   },
   async listQuiz(categories) {
     return categories?.length ? quizQuestions.filter(q => categories.includes(q.category)) : quizQuestions;

@@ -1,4 +1,4 @@
-import type { CodingChallenge, CodingLevel, DebugChallenge, QuizCategory, QuizQuestion } from '@/content/types';
+import type { CodingChallenge, CodingLevel, DebugChallenge, QuizCategory, QuizQuestion, RegexChallenge } from '@/content/types';
 
 /**
  * Contrato de acceso al contenido. Hoy lo implementa `localContentRepository`
@@ -11,5 +11,7 @@ export interface ContentRepository {
   getCoding(id: string): Promise<CodingChallenge | null>;
   listDebug(): Promise<DebugChallenge[]>;
   getDebug(id: string): Promise<DebugChallenge | null>;
+  listRegex(): Promise<RegexChallenge[]>;
+  getRegex(id: string): Promise<RegexChallenge | null>;
   listQuiz(categories?: QuizCategory[]): Promise<QuizQuestion[]>;
 }

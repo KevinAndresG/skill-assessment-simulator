@@ -87,6 +87,8 @@ select,input[type=number]{background:var(--panel2);color:var(--text);border:1px 
 .check input{margin-top:4px;accent-color:var(--accent);width:16px;height:16px}
 .check label{cursor:pointer}
 .hide{display:none!important}
+.rx-input{background:var(--panel2);color:var(--text);border:1px solid var(--line);border-radius:var(--r);padding:8px 10px;font:500 15px var(--font-code)}
+.rx-slash{font:700 20px var(--font-code);color:var(--accent)}
 details{background:var(--panel);border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;margin:8px 0}
 summary{cursor:pointer;font-weight:700}
 .chips{display:flex;gap:6px;flex-wrap:wrap}

@@ -61,6 +61,40 @@ export interface DebugChallenge extends ChallengeBase {
 
 export type Challenge = CodingChallenge | DebugChallenge;
 
+/**
+ * Retos de regex. El modo define cómo se evalúa la expresión del usuario:
+ *  - test:    `regex.test(input)` → expected es boolean (se quitan las flags g/y).
+ *  - extract: todas las coincidencias completas (se fuerza la flag g) → expected es string[].
+ *  - replace: `input.replace(regex, replacement)` → expected es string.
+ */
+export type RegexMode = 'test' | 'extract' | 'replace';
+
+export interface RegexCase {
+  input: string;
+  expected: boolean | string[] | string;
+}
+
+export interface RegexChallenge {
+  /** Debe empezar por `rx-`. */
+  id: string;
+  title: string;
+  level: CodingLevel;
+  mode: RegexMode;
+  /** Enunciado en HTML simple (code, b, br). */
+  description: string;
+  hint: string;
+  /** Solución de referencia (se valida con `npm run validate`). */
+  solution: { pattern: string; flags?: string; replacement?: string };
+  visible: RegexCase[];
+  hidden: RegexCase[];
+}
+
+export const REGEX_MODE_LABEL: Record<RegexMode, string> = {
+  test: 'Validar',
+  extract: 'Extraer',
+  replace: 'Reemplazar',
+};
+
 export interface QuizQuestion {
   id: string;
   category: QuizCategory;
